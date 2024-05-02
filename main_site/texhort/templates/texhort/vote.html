@@ -1,0 +1,16 @@
+<h2>{{ paragraph.title }}</h2>
+<p>{{ paragraph.text_content }}</p>
+
+<p><i>{{ error_message }}</i></p>
+
+<form action="{% url 'texhort:vote' paragraph.id %}" method="post">
+  {% csrf_token %}
+  <div>
+    <input name="vote_choice" id="upvote" type="radio" value="upvote"/>
+    <label for="upvote">👍</label>    
+    <input name="vote_choice" id="downvote" type="radio" value="downvote"/>
+    <label for="downvote">👎</label>
+  </div><br/>
+  
+  <button type="submit">Vote</button>
+</form>

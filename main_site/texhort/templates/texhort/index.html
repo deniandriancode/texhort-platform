@@ -1,0 +1,16 @@
+<h1>Texhort</h1>
+
+<a href="{% url 'texhort:new' %}">Post a texhort</a>
+
+<ul>
+  {% for paragraph in all_paragraphs %}
+  <li>
+    <p>{{ paragraph.title }}</p>
+    <p>{{ paragraph.text_content }}</p>
+    <div>
+      <span>👍 {{ paragraph.upvote }}</span> <span>👎 {{ paragraph.downvote }}</span>
+    </div>
+    <a href="{% url 'texhort:vote' paragraph.id %}">vote</a>
+  </li>
+  {% endfor %}
+</ul>

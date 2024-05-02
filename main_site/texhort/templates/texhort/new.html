@@ -1,0 +1,13 @@
+<form action="{% url 'texhort:new' %}" method="post">
+  {% csrf_token %}
+  <div>
+    <label for="title">Title</label><br/>
+    <input id="title" name="title" type="text" value="" required />
+  </div>
+  <div>
+    <label for="text_content">Content</label><br/>
+    <textarea id="text_content" name="text_content" value="" required></textarea>
+  </div>
+    
+  <button type="submit">post</button>
+</form>

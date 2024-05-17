@@ -1,0 +1,13 @@
+<p>author new here</p>
+
+<form action="{% url 'texhort:author_new' %}" method="post" autocomplete="off">
+  {% csrf_token %}
+  <p>
+    <label for="username">username</label><br/>
+    <input name="username" id="username" type="text" required />
+  </p>
+  <p>{{ error_message }}</p>
+
+  <button type="submit">add</button>
+  
+</form>

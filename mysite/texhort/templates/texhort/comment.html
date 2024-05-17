@@ -1,0 +1,20 @@
+<form action="{% url 'texhort:comment' paragraph.id %}" method="post">
+  {% csrf_token %}
+
+  <select id="author" name="author">
+    {% for author in authors %}
+    <option value="{{ author.id }}">{{ author.username }}</option>
+    {% endfor %}
+  </select>
+
+  <p>
+    <label for="comment">Comment</label><br/>
+    <textarea required id="comment" name="comment" rows="15"></textarea>
+  </p>
+  <p>{{ error_message }}</p>
+  
+  <p>
+    <button type="submit">post comment</button>
+  </p>
+  
+</form>

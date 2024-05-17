@@ -1,0 +1,17 @@
+<form action="{% url 'texhort:comment_vote' comment.id %}" method="post">
+  {% csrf_token %}
+  <p>
+    <label for="upvote">
+      <input name="vote_choice" id="upvote" type="radio" value="upvote"/>
+      👍
+    </label>
+    <label for="downvote">
+      <input name="vote_choice" id="downvote" type="radio" value="dowvote"/>
+      👎
+    </label>
+  </p>
+  <p>{{ error_message }}</p>
+  <p>
+    <button type="submit">Submit</button>
+  </p>
+</form>

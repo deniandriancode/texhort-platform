@@ -1,0 +1,13 @@
+<p>author detail</p>
+
+<p>{{ paragraph.text_content }}</p>
+<p>author: {{ paragraph.author.username }}</p>
+<p>
+  <span>👍 {{ paragraph.upvote }}</span>
+  <span>👎 {{ paragraph.downvote }}</span>
+</p>
+
+<p>
+  <a href="{% url 'texhort:comment' paragraph.id %}">add comment</a>&nbsp;
+  <a href="{% url 'texhort:vote' paragraph.id %}">vote</a>
+</p>

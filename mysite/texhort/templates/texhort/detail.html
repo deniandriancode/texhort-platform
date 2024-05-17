@@ -1,0 +1,32 @@
+<p>texhort detail</p>
+
+<p>{{ paragraph.text_content }}</p>
+<p>author: {{ paragraph.author.username }}</p>
+<p>
+  <span>👍 {{ paragraph.upvote }}</span>
+  <span>👎 {{ paragraph.downvote }}</span>
+</p>
+
+<section>
+  <p>comments</p>
+  <ul>
+    {% for comment in paragraph.comment_set.all %}
+    <li>
+      <p><small>{{ comment.author.username }}</small></p>
+      <p>{{ comment.text_content }}</p>
+      <p><small>{{ comment.pub_date }}</small></p>
+      <p>
+	<span>👍 {{ comment.upvote }}</span>
+	<span>👎 {{ comment.downvote }}</span>
+	<small><a href="{% url 'texhort:comment_vote' comment.id %}">vote</a></small>
+      </p>
+      
+    </li>
+    {% endfor %}
+  </ul>
+</section>
+
+<p>
+  <a href="{% url 'texhort:comment' paragraph.id %}">add comment</a>&nbsp;
+  <a href="{% url 'texhort:vote' paragraph.id %}">vote</a>
+</p>

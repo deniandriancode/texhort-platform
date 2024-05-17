@@ -1,0 +1,23 @@
+<p>Post a Texhort</p>
+
+<form action="{% url 'texhort:new' %}" method="post">
+  {% csrf_token %}
+
+  <p>
+    <label for="author">author</label><br/>
+    <select id="author" name="author">
+      {% for author in authors %}
+      <option value="{{ author.id}}">{{ author.username }}</option>
+      {% endfor %}
+    </select>
+  </p>
+  <p>
+    <label for="text_content">Content</label><br/>
+    <textarea id="text_content" name="text_content" required></textarea><br/>
+  <p>{{ error_message }}</p>
+  </p>
+
+  <p>
+    <button type="submit">Post</button>
+  </p>
+</form>

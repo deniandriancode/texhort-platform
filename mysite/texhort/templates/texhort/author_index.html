@@ -1,0 +1,22 @@
+<p>list of authors</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>username</th>
+      <th>date joined</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for author in authors %}
+  <tr>
+    <td>{{ author.username }}</td>
+    <td>{{ author.joined_date }}</td>
+  </tr>
+  {% endfor %}
+  </tbody>
+</table>
+
+<p>
+  <a href="{% url 'texhort:author_new' %}">add new author</a>
+</p>

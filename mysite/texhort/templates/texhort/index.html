@@ -1,0 +1,19 @@
+<h1>Index of Texhort</h1>
+
+<div>
+  <ul>
+    {% for paragraph in paragraphs %}
+    <li>
+      <p>{{ paragraph.text_content }}</p>
+      <p>Author: <span style="background: #eee8aa;">{{ paragraph.author.username }}</span></p>
+      <p>
+	<span>👍 {{ paragraph.upvote }}</span>
+	<span>👎 {{ paragraph.downvote }}</span>
+      </p>
+      <p><a href="{% url 'texhort:detail' paragraph.id %}">read more</a></p>
+    </li>
+    {% endfor %}
+  </ul>
+</div>
+
+<a href="{% url 'texhort:new' %}">Post a Texhort</a>
